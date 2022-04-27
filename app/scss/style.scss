@@ -1,0 +1,204 @@
+@import 'variables';
+@import 'mixin';
+@import 'globals';
+
+body {
+    background-color: $strongCyan;
+    font-family: 'Space Mono', monospace;
+}
+main {
+    .logo {
+        height: 20vh;
+        padding: 3.125rem 0;
+        display: grid;
+        place-items: center;
+    }
+    .grid {
+        min-height: 80vh;
+        max-width: 57.8125rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+        background-color: $White;
+        border-radius: 23px 23px 0 0;
+        padding: 2.1875rem 2rem;
+
+        .panel {
+            display: grid;
+            row-gap: 3.125rem;
+            margin-bottom: 2rem;
+            p {
+                width: 100%;
+                font-size: 0.875rem;
+                color: $DarkGrayishCyan;
+                margin-bottom: 0.75rem;
+            }
+            .box {
+                width: 100%;
+                position: relative;
+                img {
+                    position: absolute;
+                    width: 10;
+                    height: 20;
+                    left: 1.25rem;
+                    top: calc(50% - 10px);
+                }
+                input {
+                    width: 100%;
+                    padding: 1rem 1.25rem;
+                    cursor: text;
+
+                }
+                
+            }
+            .tip {
+                &__boxes {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(1rem, 11.25rem));
+                    justify-content: space-between;
+                    gap: 1.125rem;
+                    
+                    .tip-btn,
+                    .custom-tip-btn {
+                        padding: 0.875rem 0;
+                        font-size: 1.25rem;
+                        border-radius: 5px;
+                        border: none;
+                    }
+                    .tip-btn {
+                        color: $White;
+                        background-color: $VeryDarkCyan;
+
+                        &.active {
+                            background-color: $strongCyan;
+                            color: $VeryDarkCyan;
+                        }
+                    }
+                    .tip-btn:hover {
+                        background-color: $strongCyan / 0.3;
+                        color: $VeryDarkCyan;
+                    }
+                    .custom-tip-btn {
+                        padding: 0 0.75rem;
+                        cursor: text;
+                    }
+                }
+            }
+
+        }
+
+        .display-screen {
+            background-color: $VeryDarkCyan;
+            border-radius: 15px;
+            padding: 2.8125rem 1.5rem;
+            padding-bottom: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+
+            .line {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                &:first-child {
+                    margin-bottom: 1.875rem;
+                }
+
+                p:first-child {
+                    color: $White;
+                    font-size: 1.125rem;
+                    span {
+                        display: block;
+                        font-size: 0.75rem;
+                        color: $DarkGrayishCyan;
+                    }
+                }
+                p:last-child {
+                    font-size: 1.5rem;
+                    color: $strongCyan;
+                }
+            }
+            button {
+                margin-top: 2.25rem;
+                width: 100%;
+                font-size: 1rem;
+                padding: 1.25rem 0;
+                color: $VeryDarkCyan;
+                background-color: $strongCyan;
+                border: none;
+                outline: none;
+            }
+            button.disabled {
+                cursor: default;
+                pointer-events: none;
+                background-color: $VeryDarkCyan / 0.8;
+                color: $VeryDarkCyan;
+            }
+            button:hover {
+                background-color: $strongCyan / 0.3;
+                color: $VeryDarkCyan;
+            }
+        }
+        @include breakpoint-up(small) {
+            grid-template-columns: 1fr 1fr;
+            gap: 3.125rem;
+            padding: 2rem;
+            border-radius: 23px;
+            min-height: auto;
+
+            .panel {
+                row-gap: 3rem;
+
+                .tip {
+                    &__boxes {
+                        grid-template-columns: repeat(3, minmax(6rem, 7.375rem));
+                    }
+                }
+            }
+            .display-screen {
+                padding: 3.625rem 2.375rem;
+                padding-bottom: 2.5625rem;
+                
+                .line {
+                    p:first-child {
+                        
+                    }
+                    p:last-child {
+                        font-size: 2.3125rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: $VeryLightGrayishCyan;
+    color: $VeryDarkCyan;
+    font-size: 1.25rem;
+    text-align: end;
+}
+input:focus {
+    outline: 1px solid $strongCyan;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+* {
+    cursor: default;
+}
+button {
+    cursor: pointer;
+}

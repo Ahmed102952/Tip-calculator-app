@@ -147,9 +147,10 @@ main {
             padding: 2rem;
             border-radius: 23px;
             min-height: auto;
+            margin-bottom: 5rem;
 
             .panel {
-                row-gap: 3rem;
+                row-gap: 1.5rem;
 
                 .tip {
                     &__boxes {
@@ -162,9 +163,6 @@ main {
                 padding-bottom: 2.5625rem;
                 
                 .line {
-                    p:first-child {
-                        
-                    }
                     p:last-child {
                         font-size: 2.3125rem;
                     }

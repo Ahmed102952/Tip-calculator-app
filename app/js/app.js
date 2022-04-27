@@ -19,6 +19,8 @@ tipBtnInput.forEach(e => {
         checkInputs();
         tipBtnInput.forEach(element=> {element.classList.remove('active')})
         e.classList.add('active');
+        customTipBtnInput.value = ''
+
     })
 })
 

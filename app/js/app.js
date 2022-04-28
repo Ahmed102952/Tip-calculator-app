@@ -16,11 +16,12 @@ tipBtnInput.forEach(e => {
     e.addEventListener('click', (event) => {
         event.preventDefault();
         tipPercent = e.value;
+        calc()
         checkInputs();
         tipBtnInput.forEach(element=> {element.classList.remove('active')})
         e.classList.add('active');
         customTipBtnInput.value = ''
-
+        
     })
 })
 
@@ -31,11 +32,7 @@ customTipBtnInput.addEventListener('input', () => {
 
 inputs.forEach(e => {
     e.addEventListener('input', () => {
-        bill = billInput.value;
-        peoNum = peoNumInput.value;
-
-        tipAmount = (bill * (tipPercent / 100)) / peoNum;
-        total = (bill / peoNum) + tipAmount;
+        calc()
 
         checkInputs()
 
@@ -49,11 +46,11 @@ resetBtn.addEventListener('click', (e) => {
 
 
 const checkInputs = () => {
-        resetBtn.classList.remove('disabled');
-        if(tipAmount && tipAmount !== Infinity) {
-            tipAmountDisplay.innerHTML = tipAmount.toFixed();
-            totalDisplay.innerHTML = total.toFixed();
-        }
+    resetBtn.classList.remove('disabled');
+    if(tipAmount && tipAmount !== Infinity) {
+        tipAmountDisplay.innerHTML = tipAmount.toFixed();
+        totalDisplay.innerHTML = total.toFixed();
+    }
 }
 
 const reset = () => {
@@ -61,16 +58,20 @@ const reset = () => {
     customTipBtnInput.value = ''
     peoNumInput.value = ''
     tipBtnInput.forEach(element=> {element.classList.remove('active')})
-
     tipPercent = 0;
     tipAmount = 0;
     total = 0;
     bill = 0;
     peoNum = 0;
     resetBtn.classList.add('disabled');
-
     tipAmountDisplay.innerHTML = '0';
     totalDisplay.innerHTML = '0';
 
+}
+const calc = () => {
+    bill = billInput.value;
+    peoNum = peoNumInput.value;
+    tipAmount = (bill * (tipPercent / 100)) / peoNum;
+    total = (bill / peoNum) + tipAmount;
 }
 reset();

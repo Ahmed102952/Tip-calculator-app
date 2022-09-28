@@ -48,8 +48,8 @@ resetBtn.addEventListener('click', (e) => {
 const checkInputs = () => {
     resetBtn.classList.remove('disabled');
     if(tipAmount && tipAmount !== Infinity) {
-        tipAmountDisplay.innerHTML = tipAmount.toFixed();
-        totalDisplay.innerHTML = total.toFixed();
+        tipAmountDisplay.innerHTML = tipAmount;
+        totalDisplay.innerHTML = total;
     }
 }
 
